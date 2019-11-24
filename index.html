@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <style>
+      a.test {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="http://jquery.com/">jQuery</a>
+    <a href="#">#</a>
+    <div id="h1"><h1>This was already here</h1></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(() => {
+        console.log("ready!!!");
+      });
+      $(document).ready(() => {
+        console.log("second function ran");
+      });
+      jQuery(document).ready(() => {
+        console.log("jQuery function ran");
+      });
+      $(document).ready(function() {
+        $("a").click(function(event) {
+          alert("Thanks for visiting!");
+          event.preventDefault();
+        });
+      });
+      $(document).ready(function() {
+        $("a").click(function(event) {
+          console.log("Thanks for visiting!");
+        });
+      });
+      $(document).ready(() => {
+        $("a").addClass("test");
+      });
+      $(document).ready(() => {
+        $("a[href='#']").removeClass("test");
+        $("a[href='#']").addClass("hash");
+        $("a").click(function(event) {
+          event.preventDefault();
+          console.log(this);
+          $(this).hide("slow");
+        });
+      });
+    </script>
+  </body>
+</html>
